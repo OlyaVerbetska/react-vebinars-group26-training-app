@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-vebinars-group26-training-app"]=this["webpackJsonpreact-vebinars-group26-training-app"]||[]).push([[0],{9:function(e,n,r){"use strict";r.r(n);r(1);var t=r(3),a=r.n(t),i=r(0);var c=function(){return Object(i.jsx)("div",{className:"App",children:Object(i.jsx)("h1",{children:"Hello Laima!"})})};a.a.render(Object(i.jsx)(c,{}),document.getElementById("root"))}},[[9,1,2]]]);
+//# sourceMappingURL=main.0f295898.chunk.js.map
