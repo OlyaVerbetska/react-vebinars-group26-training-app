@@ -1,0 +1,18 @@
+.Counter {
+     border: 1px solid tomato;
+     padding: 50px;
+     width: 400px;
+     font-size: 40px;
+     margin: 0 auto;
+}
+.CounterValue {
+    font-size: 40px;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+}
+.CounterControls {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
