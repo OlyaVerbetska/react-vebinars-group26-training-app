@@ -1,12 +1,12 @@
 import styles from "./Counter.module.css";
 
-const Controls = ({ onDecrement, onIncrement }) => (
+const Controls = ({step, onDecrement, onIncrement }) => (
   <div className={styles.CounterControls}>
     <button type="button" onClick={onDecrement}>
-      Уменьшить на 1
+      Уменьшить на {step}
     </button>
     <button type="button" onClick={onIncrement}>
-      Увеличить на 1
+      Увеличить на {step}
     </button>
   </div>
 );

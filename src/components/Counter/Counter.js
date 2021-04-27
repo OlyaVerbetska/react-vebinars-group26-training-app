@@ -1,47 +1,35 @@
-import React, { Component } from "react";
+//import React, { Component } from "react";
 // Стили нужно выносить в отдельные файлы
 import styles from "./Counter.module.css";
 import Controls from "./Controls";
 import Value from "./Value";
+import { connect } from "react-redux";
+import * as actions from "../../redux/actions";
 
-class Counter extends Component {
-  static defaultProps = {
-    initialValue: 33,
-  };
-  static propTypes = {
-    //
-  };
-  state = {
-    // value: 100,
-    value: this.props.initialValue,
-  };
-  handleIncrement = () => {
-    // Обновление независимо от предыдущего - объект =============================
-    //    this.setState ({
-    //        value: 200,
-    //    })
-    // Обновление от предыдущего - функция=============================
-    // стрелка = возвращает выражение, внутри которого объект
-    this.setState((prevState) => ({
-      value: prevState.value + 1,
-    }));
-  };
-  handleDecrement = () => {
-    this.setState((prevState) => ({
-      value: prevState.value - 1,
-    }));
-  };
-  render() {
-    const {value} = this.state;
-    return (
-      <div className={styles.Counter}>
-        <Value value={value} />
-        <Controls
-          onDecrement={this.handleDecrement}
-          onIncrement={this.handleIncrement}
-        />
-      </div>
-    );
-  }
-}
-export default Counter;
+// console.log("from counter", store.getState());
+
+const Counter = ({ value, step, onDecrement, onIncrement }) => {
+  return (
+    <div className={styles.Counter}>
+      <h3>Counter</h3>
+      <Value value={value} />
+      <Controls
+        onDecrement={() => onDecrement (step)}
+        onIncrement={() => onIncrement (step)}
+        step={step}
+      />
+    </div>
+  );
+};
+const mapStateToProps = (state) => ( {
+    value: state.counter.value,
+    step: state.counter.step,
+  });
+
+
+const mapDispatchToProps = (dispatch) => ( {
+  onIncrement: (value) => dispatch(actions.increment(value)),
+  onDecrement: (value) => dispatch(actions.decrement(value)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
